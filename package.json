@@ -35,6 +35,7 @@
   "homepage": "https://github.com/curveballjs/new-package#readme",
   "devDependencies": {
     "@types/chai": "^4.1.7",
+    "@types/http-link-header": "^0.6.2",
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.12.0",
     "@types/sinon": "^7.0.10",
@@ -53,6 +54,7 @@
     ]
   },
   "dependencies": {
-    "@curveball/core": "^0.8.1"
+    "@curveball/core": "^0.8.1",
+    "http-link-header": "^1.0.2"
   }
 }
