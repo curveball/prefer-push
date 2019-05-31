@@ -1,6 +1,10 @@
 import { Application, Context, Middleware } from '@curveball/core';
 import httpLinkHeader from 'http-link-header';
 
+const copyHeaders = [
+  'Origin';
+]
+
 export default (app: Application): Middleware => {
 
   return async (ctx: Context, next: () => void) => {
@@ -28,6 +32,11 @@ export default (app: Application): Middleware => {
       pushPromises.push(ctx.push( pushCtx => {
 
         pushCtx.request.path = href;
+        for (const headerName of copyHeaders) {
+          if (ctx.request.headers.has(headerName)) {
+            pushCtx.request.headers.set(headerName, ctx.request.headers.get(headerName)!);
+          }
+        }
         return app.handle(pushCtx);
 
       }));
