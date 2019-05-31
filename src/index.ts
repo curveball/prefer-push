@@ -1,4 +1,4 @@
-import { Context, Middleware, Application } from '@curveball/core';
+import { Application, Context, Middleware } from '@curveball/core';
 import httpLinkHeader from 'http-link-header';
 
 export default (app: Application): Middleware => {
@@ -17,41 +17,18 @@ export default (app: Application): Middleware => {
     // Let all the regular middlewares execute
     await next();
 
-    const linkHeader = ctx.response.headers.get('Link');
-
-    // No Link header? Skip.
-    if (!linkHeader) {
-      return;
-    }
-
-    // Get a list of links from response headers.
-    const links = httpLinkHeader.parse(linkHeader);
-
-    // Get all hrefs for links that need to get pushed.
-    const hrefs: string[] = [];
-
-    for (const pushRel of pushRels) {
-
-      for (const link of <any>links.rel(pushRel)) {
-
-        // We're only interested if the href is relative
-        if (!/^\/[^\/]/.test(link.uri)) {
-          console.log('Pushing %s', link.uri);
-          hrefs.push(link.uri);
-        }
-
-      }
-
-    }
+    const hrefs = getLinksForRequest(ctx, pushRels).filter( href => {
+      return !/^\/[^\/]/.test(href);
+    });
 
     const pushPromises = [];
 
-    for(const href of hrefs) {
+    for (const href of hrefs) {
 
       pushPromises.push(ctx.push( pushCtx => {
 
         pushCtx.request.path = href;
-        app.handle(pushCtx);
+        return app.handle(pushCtx);
 
       }));
 
@@ -60,5 +37,42 @@ export default (app: Application): Middleware => {
     await Promise.all(pushPromises);
 
   };
+
+};
+
+const getLinksForRequest = (ctx: Context, rels: string[]): string[] => {
+
+  const result = new Set<string>();
+
+  const linkHeader = ctx.response.headers.get('Link');
+
+  // No Link header? Skip.
+  if (linkHeader) {
+    const httpLinks = httpLinkHeader.parse(linkHeader);
+    for (const link of httpLinks.refs) {
+      if (rels.includes(link.rel)) {
+        result.add(link.uri);
+      }
+    }
+
+  }
+
+  if (ctx.response.body._links !== undefined) {
+    // Assume it's HAL
+    for (const rel of rels) {
+      if (ctx.response.body._links[rel] !== undefined) {
+        if (Array.isArray(ctx.response.body._links[rel])) {
+          for (const halLink of ctx.response.body._links[rel]) {
+            result.add(halLink.href);
+          }
+        } else {
+          result.add(ctx.response.body._links[rel].href);
+        }
+      }
+    }
+
+  }
+
+  return Array.from(result);
 
 };
