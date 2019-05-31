@@ -2,7 +2,7 @@ import { Application, Context, Middleware } from '@curveball/core';
 import httpLinkHeader from 'http-link-header';
 
 const copyHeaders = [
-  'Origin';
+  'Origin',
 ]
 
 export default (app: Application): Middleware => {
