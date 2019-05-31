@@ -1,6 +1,6 @@
 {
   "name": "@curveball/prefer-push",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Automatically intercept Prefer-Push headers and handle them",
   "main": "dist/index.js",
   "scripts": {
