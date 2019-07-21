@@ -3,7 +3,7 @@ import httpLinkHeader from 'http-link-header';
 
 const copyHeaders = [
   'Origin',
-]
+];
 
 export default (app: Application): Middleware => {
 
