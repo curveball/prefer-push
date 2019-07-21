@@ -36,16 +36,16 @@
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/http-link-header": "^0.6.2",
-    "@types/mocha": "^5.2.6",
-    "@types/node": "^11.13.12",
-    "@types/sinon": "^7.0.12",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^11.13.18",
+    "@types/sinon": "^7.0.13",
     "chai": "^4.2.0",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.0",
     "nyc": "^13.3.0",
     "sinon": "^7.3.2",
-    "ts-node": "^8.2.0",
-    "tslint": "^5.16.0",
-    "typescript": "^3.5.1"
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
   },
   "types": "dist/",
   "nyc": {
