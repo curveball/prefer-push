@@ -1,6 +1,8 @@
 Curveball New Package
 =====================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/curveballjs/prefer-push.svg)](https://greenkeeper.io/)
+
 This repository serves as the skeleton for all new [Curveball][1] packages.
 
 Installation
