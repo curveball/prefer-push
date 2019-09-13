@@ -54,7 +54,7 @@
     ]
   },
   "dependencies": {
-    "@curveball/core": "^0.8.1",
+    "@curveball/core": "^0.9.0",
     "http-link-header": "^1.0.2"
   }
 }
