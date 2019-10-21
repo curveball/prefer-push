@@ -34,19 +34,19 @@
   },
   "homepage": "https://github.com/curveballjs/prefer-push#readme",
   "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/http-link-header": "^1.0.0",
+    "@curveball/core": "^0.9.0",
+    "@types/chai": "^4.2.3",
+    "@types/http-link-header": "^1.0.1",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.6.8",
-    "@types/sinon": "^7.0.13",
+    "@types/node": "^12.11.1",
+    "@types/sinon": "^7.5.0",
     "chai": "^4.2.0",
-    "mocha": "^6.2.0",
+    "mocha": "^6.2.2",
     "nyc": "^14.1.1",
-    "sinon": "^7.3.2",
-    "ts-node": "^8.3.0",
-    "tslint": "^5.18.0",
-    "typescript": "^3.5.3",
-    "@curveball/core": "^0.9.0"
+    "sinon": "^7.5.0",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
   },
   "peerDependency": {
     "@curveball/core": "^0.9.0"
