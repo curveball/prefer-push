@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.3.2 (2019-10-20)
+------------------
+
+* `@curveball/core` is now a peerDependency, which should make upgrades in
+  core less painful.
+
+
 0.3.1 (2019-05-31)
 ------------------
 
