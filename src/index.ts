@@ -22,7 +22,7 @@ export default (app: Application): Middleware => {
     await next();
 
     const hrefs = getLinksForRequest(ctx, pushRels).filter( href => {
-      return !/^\/[^\/]/.test(href);
+      return !/^\/[^/]/.test(href);
     });
 
     const pushPromises = [];
