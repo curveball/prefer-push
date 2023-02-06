@@ -1,5 +1,5 @@
 import { Application, Context, Middleware } from '@curveball/kernel';
-import httpLinkHeader from 'http-link-header';
+import * as httpLinkHeader from 'http-link-header';
 
 const copyHeaders = [
   'Origin',
