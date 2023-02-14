@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5.0 (????-??-??)
+0.5.0 (2023-02-14)
 ------------------
 
 * ESM and CommonJS support.
@@ -16,8 +16,8 @@ Changelog
 0.3.1 (2019-05-31)
 ------------------
 
-* Automatically 'forward' the `Origin` header to the push context from the
-  main context.
+* Automatically 'forward' the `Origin` header to the push context from the main
+  context.
 
 
 0.3.0 (2019-05-31)
@@ -27,10 +27,10 @@ Changelog
 
 
 0.2.0 (2019-05-31)
------------------
+------------------
 
 * Changed package name to `@curveball/prefer-push`.
-i
+
 
 0.1.0 (2019-05-30)
 ------------------
